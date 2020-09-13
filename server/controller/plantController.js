@@ -22,12 +22,10 @@ module.exports = {
     },
    
     editPlant(req, res, next) {
-        // const { id } = req.params._id;
-        // console.log(id, "id")
-        // console.log(req.params._id, 'params')
+        const { _id } = req.params;
         const { status, petName } = req.body;
         if (!{ status }) return res.status(400).json("Missing an update!");
-        Plant.findOneAndUpdate({ _id : req.params._id }, { status, petName }, { new: true }, (err, editedPlant) => {
+        Plant.findOneAndUpdate({ _id }, { status, petName }, { new: true }, (err, editedPlant) => {
             if (err) return next(err);
             res.locals.plant = editedPlant;
             return next();
@@ -35,11 +33,9 @@ module.exports = {
     },
 
     deletePlant(req, res, next){
-        // const { id } = req.params._id;
-        // console.log(id, 'id');
-        // console.log(req.params._id, 'params')
-        if (!req.params._id) return res.status(400).json("Missing information");
-        Plant.findOneAndDelete({ _id : req.params._id }, (err, deleted) => {
+        const { _id } = req.params;
+        if (!_id) return res.status(400).json("Missing information");
+        Plant.findOneAndDelete({ _id }, (err, deleted) => {
             if (err) return next(err);
             res.locals.plant = deleted;
             return next();
