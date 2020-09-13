@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -33,7 +34,14 @@ module.exports = {
         'file-loader',
       ],
     },
-  ]},
+    ]
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+     new HtmlWebpackPlugin({
+       title: 'Output Management',
+     }),
+   ],
 resolve: {
 	extensions: ['.js', '.jsx', ]},
   plugins: [

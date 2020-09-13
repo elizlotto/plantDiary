@@ -1,0 +1,1 @@
+const Plant = require('../models/plantSchema');

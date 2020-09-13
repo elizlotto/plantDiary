@@ -1,0 +1,1 @@
+const Accessory = require('../models/accessorySchema');
