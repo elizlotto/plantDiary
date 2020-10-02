@@ -5,12 +5,16 @@ const path = require("path");
 
 const cookieParser = require("cookie-parser");
 const plantController = require("./controller/plantController");
+const authController = require("./controller/authController");
+const { oAuth } = require("./controller/authController");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-
+app.get('/login', authController.oAuth, (req, res) => {
+  return res.redirect(res.locals.url);
+})
 app.get("/plant", plantController.getPlants, (req, res) => {
   res.json(res.locals.plant);
 });
