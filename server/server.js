@@ -20,12 +20,10 @@ app.post("/plant", plantController.createPlant, (req, res) => {
 });
 
 app.put("/plant/:_id", plantController.editPlant, (req, res) => {
-  console.log('in put')
   res.json(res.locals.plant);
 });
 
 app.delete("/plant/:_id", plantController.deletePlant, (req, res) => {
-  console.log('in delete')
   res.json(res.locals.plant);
 });
 

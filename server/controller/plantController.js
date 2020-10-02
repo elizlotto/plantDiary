@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 module.exports = {
   createPlant(req, res, next) {
     console.log(req.body, 'req')
-    console.log("in plantController create");
     const { name, petName, acquired, status, price } = req.body;
 
     if (!name) return res.status(400).json("Missing plant name!");
@@ -27,7 +26,6 @@ module.exports = {
   },
 
   editPlant(req, res, next) {
-    console.log('in edit')
     const { _id } = req.params;
     const { status, petName } = req.body;
     if (!status) return res.status(400).json("Missing a status!");
