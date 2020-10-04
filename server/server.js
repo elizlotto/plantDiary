@@ -15,6 +15,7 @@ app.use(cookieParser());
 app.get('/login', authController.oAuth, (req, res) => {
   return res.redirect(res.locals.url);
 })
+
 app.get("/plant", plantController.getPlants, (req, res) => {
   res.json(res.locals.plant);
 });
