@@ -6,16 +6,15 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const plantController = require("./controller/plantController");
 const authController = require("./controller/authController");
-const cookieController = require('./controller/cookieController');
-const jwtDecode = require("jwt-decode")
-
+const cookieController = require("./controller/cookieController");
+const jwtDecode = require("jwt-decode");
 
 require("dotenv").config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.get('/login', authController.oAuth, (req, res) => {
+app.get("/login", authController.oAuth, (req, res) => {
   return res.redirect(res.locals.url);
 });
 
