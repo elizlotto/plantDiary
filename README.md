@@ -11,4 +11,4 @@ Want to be a contributor?
 2. Run npm install followed by npm run dev.
 3. The app will launch the dev server on localhost:8080. 
 
-All ideas and contributions are welcome. Plant lovers unit!
+All ideas and contributions are welcome. Plant lovers unite!
