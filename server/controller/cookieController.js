@@ -4,7 +4,6 @@ module.exports = {
   const { name } = res.locals.person;
   res.cookie("name", name, { httpOnly: false });
   console.log(name);
-  // decodeURIComponent('shmaryeh%40gmail.com')
   return next();
   },
   

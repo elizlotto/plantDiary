@@ -1,16 +1,20 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Login from '../components/Login';
+import PlantContainer from '../components/PlantContainer';
+import './assets/styles.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-        <h1>Welcome to
-          <br/>Fullstack Webpack!</h1>
-        <div className='description'>
-          <h4>Visit us at</h4>
-          <h3>https://github.com/Create-Fullstack-Webpack/create-fullstack-webpack-app</h3>
-        </div>
-    </div>
+    <main>
+      <router>
+        <Switch>
+          <Route path="/loggedIn" component={PlantContainer} />
+          <Route path="/" component={Login} exact />
+        </Switch>
+      </router>
+    </main>
   );
-}
+};
 
 export default App;
