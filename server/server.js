@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-  return res.redirect('/login');
+  return res.sendFile(path.join(__dirname, '../client/src/index.html'));
 });
 
 app.get("/login", authController.oAuth, (req, res) => {
