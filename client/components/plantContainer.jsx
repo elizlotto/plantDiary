@@ -13,7 +13,7 @@ const PlantContainer = () => {
   }, []);
 
   return (
-    <div>Welcome {user.name}!</div>
+    <div>Welcome {user.name} to your Plant Diary!</div>
   )
 }
 

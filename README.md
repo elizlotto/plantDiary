@@ -12,3 +12,5 @@ Want to be a contributor?
 3. The app will launch the dev server on localhost:8080. 
 
 All ideas and contributions are welcome. Plant lovers unite!
+
+Use npm run start for dev server and go to localhost:8080
