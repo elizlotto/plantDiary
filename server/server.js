@@ -2,17 +2,20 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require("path");
-
 const cookieParser = require("cookie-parser");
 const plantController = require("./controller/plantController");
 const authController = require("./controller/authController");
 const cookieController = require("./controller/cookieController");
 const jwtDecode = require("jwt-decode");
 
+
 require("dotenv").config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+
+//serve the production build
+app.use('/dist', express.static(path.join(_dirname, "../dist")));
 
 app.get('/', (req, res) => {
   return res.sendFile(path.join(__dirname, '../client/src/index.html'));
