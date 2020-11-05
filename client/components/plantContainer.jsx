@@ -6,7 +6,7 @@ const PlantContainer = () => {
 
   //useEffect for user
   const [user, setUser] = useState({});
-  let plants;
+
   useEffect(() => {
     fetch('/user')
       .then((res) => res.json())
@@ -14,36 +14,41 @@ const PlantContainer = () => {
         setUser(res);
       });
   }, []);
-  console.log(user.email, 'user');
+  console.log(user.email, 'user line 17');
 
   //useEffect for fetching plant data
   const [allPlants, setAllPlants] = useState([]);
   console.log(allPlants, 'allplants line 21');
   useEffect(() => {
-    const getPlants = () => {
+
       fetch('/plant', {})
         .then((res) => {
           if (res.status >= 400) throw new Error('Server error!');
           return res.json();
         })
-        .then((data) => console.log(data, 'data'))
-        .then((res) => setAllPlants(res))
-        .catch((err) => console.log(err));
-    };
-    getPlants();
-  }, [allPlants]);
+        .then((data) => {
+          console.log(data, 'data')
+          setAllPlants(data)
+        })
+       
 
-  {
-    console.log(allPlants, 'all line 27');
-  }
+  }, []);
+  let plants = allPlants.map(plant => {
+    <PlantCard id={plant._id} name={plant.name} />
+  });
+
+  console.log(allPlants, 'all line 3');
+  
 
   return (
     <div className="PlantContainer">
-      {/* <ul>
-        {allPlants.map(plant => {
+      <ul>
+        {/* {allPlants.map(plant => {
           <PlantCard id={plant._id} name={plant.name} />
-        })}
-       </ul> */}
+        })} */} 
+        {/* {plants} */}
+        <PlantCard />
+       </ul>
       <div>Welcome {user.name}!</div>
       <p>Plants coming soon!</p>
     </div>
