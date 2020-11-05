@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 
 //custom hook for create plant form
-const usePlantForm = (callback) => {
-  //input state
-  const [inputs, setInputs] = useState({});
+const usePlantForm = () => {
+  //input state which will be updated when the user inputs information in the plant form
+  const initialInput = {
+    name,
+    status,
+  };
 
-  //handleSubmit to prevent default browser refresh behavior
-  const handleSubmit = (e) => {
-    if (e) {
-      e.preventDefault();
+  const [inputs, setInputs] = useState(initialInput);
+  
+  console.log(inputs, 'input state ln 11')
+
+  const handleSubmit = (event) => {
+    if (event) {
+      event.preventDefault();
     }
-    callback()
-  }
+  };
+  const handleInputChange = (event) => {
+    event.persist();
+    setInputs((inputs) => ({ ...inputs, [event.target.name]: event.target.value }));
+  };
 
-  return null;
-}
+  return {
+    handleSubmit,
+    handleInputChange,
+    inputs,
+  };
+};
+
+export default usePlantForm;
