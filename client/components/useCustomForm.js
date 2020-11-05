@@ -9,36 +9,36 @@ const useCustomForm = ({ initialValues, onSubmit }) => {
 
   const formRendered = useRef(true);
 
-  useEffect(() => {
-    if (!formRendered.current) {
-      setValues(initialValues);
-      setErrors({});
-      setTouched({});
-      setOnSubmitting(false);
-      setOnBlur(false);
-    }
-    formRendered.current = false;
-  }, [initialValues]);
+  // useEffect(() => {
+  //   if (!formRendered.current) {
+  //     setValues(initialValues);
+  //     setErrors({});
+  //     setTouched({});
+  //     setOnSubmitting(false);
+  //     setOnBlur(false);
+  //   }
+  //   formRendered.current = false;
+  // }, [initialValues]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { target } = event;
-    const { name, value } = target;
-    event.persist();
-    setValues({ ...values, [name]: value });
-  };
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { target } = event;
+  //   const { name, value } = target;
+  //   event.persist();
+  //   setValues({ ...values, [name]: value });
+  // };
 
-  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { target } = event;
-    const { name } = target;
-    setTouched({ ...touched, [name]: true });
-    setErrors({ ...errors });
-  };
+  // const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { target } = event;
+  //   const { name } = target;
+  //   setTouched({ ...touched, [name]: true });
+  //   setErrors({ ...errors });
+  // };
 
-  const handleSubmit = (event: any) => {
-    if (event) event.preventDefault();
-    setErrors({ ...errors });
-    onSubmit({ values, errors });
-  };
+  // const handleSubmit = (event: any) => {
+  //   if (event) event.preventDefault();
+  //   setErrors({ ...errors });
+  //   onSubmit({ values, errors });
+  // };
 
   return {
     values,
