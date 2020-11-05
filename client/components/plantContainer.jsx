@@ -39,7 +39,11 @@ const PlantContainer = () => {
   return (
    
     <div className="PlantContainer">
-    */}
+      {/* <ul>
+        {allPlants.map(plant => (
+          <PlantCard id={plant._id} name={plant.name} />
+        ))}
+       </ul> */}
       <div>Welcome {user.name}!</div>
       <p>Plants coming soon!</p>
     </div>
