@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import './PlantCard.css';
 
 const PlantCard = (props) => {
   console.log('in plant card')
-  // const { id, name } = this.props;
+   const { id, name } = props;
   console.log(props, 'props')
   return (
-    <div className="Plant-Card">
-      {/* <ul>Plant: {name}</ul> */}
-      <li>More info here</li>
+    <div className="Plant-card">
+      <ul>Plant: {name}</ul>
+      <ul>Id: {id}</ul>
     </div>
   );
 }
