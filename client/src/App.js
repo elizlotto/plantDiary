@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
 import Login from '../components/Login';
 import PlantContainer from '../components/PlantContainer';
 import './assets/styles.scss';
@@ -7,14 +7,16 @@ import './assets/styles.scss';
 
 const App = () => {
   return (
-    <main>
+   
       <router>
+         <main>
         <Switch>
           <Route path="/loggedIn" component={PlantContainer} />
           <Route path="/" component={Login} exact />
         </Switch>
+        </main>
       </router>
-    </main>
+    
   );
 };
 
