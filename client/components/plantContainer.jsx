@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
+import CreatePlant from './CreatePlant';
 
 const PlantContainer = () => {
   console.log('inplant container');
@@ -44,7 +45,7 @@ const PlantContainer = () => {
      <div className="PlantCard">
         {plants}
      </div>
-      
+      <div><CreatePlant email={user.email}/></div>
       <p>Plants coming soon!</p>
     </div>
   );
