@@ -11,7 +11,10 @@ const PlantContainer = () => {
         setUser(res);
       });
   }, []);
-
+//plant container is the redirect after login. 
+  //will render a plant card 
+  //will also fetch from the plantContainer
+  //use user obj to link database entries. 
   return (
     <div className="PlantContainer">
       <div>Welcome {user.name}!</div>
