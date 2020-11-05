@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 module.exports = {
   createPlant(req, res, next) {
     console.log(req.body, 'req')
-    const { name, petName, acquired, status, price } = req.body;
+    const { email, name, petName, acquired, status, price } = req.body;
 
     if (!name) return res.status(400).json("Missing plant name!");
     Plant.create(
-      { name, petName, acquired, status, price },
+      { email, name, petName, acquired, status, price },
       (err, newPlant) => {
         if (err) return next(err);
         res.locals.plant = newPlant;
