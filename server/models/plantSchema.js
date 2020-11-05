@@ -14,6 +14,8 @@ mongoose.connection.once("open", () => {
 });
 
 const plantSchema = new mongoose.Schema({
+  //add user here 
+  email: {type: String, require: true},
   name: { type: String, require: true },
   petName: { type: String, require: false },
   acquired: { type: String, require: false },

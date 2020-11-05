@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 //serve the production build
-app.use('/dist', express.static(path.join(_dirname, "../dist")));
+app.use('/dist', express.static(path.join(__dirname, "../dist")));
 //sending the index 
 app.get('/', (req, res) => {
   return res.sendFile(path.join(__dirname, '../client/src/index.html'));
