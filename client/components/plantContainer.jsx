@@ -35,8 +35,8 @@ const PlantContainer = () => {
 
   }, []);
   let plants = allPlants.map(plant => {
+    //note: must include delete button in this loop & an edit toggle
     return (<PlantCard key={plant._id} id={plant._id} name={plant.name} />)
-   
   });
 
   return (
