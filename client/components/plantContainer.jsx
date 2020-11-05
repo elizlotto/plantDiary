@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const PlantContainer = () => {
   console.log('inplant container');
-  const [user, setUser] = useState({});
 
+  //useEffect for user
+  const [user, setUser] = useState({});
   useEffect(() => {
     fetch('/user')
       .then((res) => res.json())
@@ -11,6 +12,9 @@ const PlantContainer = () => {
         setUser(res);
       });
   }, []);
+
+  //useEffect for fetching plant data
+  const [allPlants, setAllPlants] = useState({});
 //plant container is the redirect after login. 
   //will render a plant card 
   //will also fetch from the plantContainer
