@@ -1,5 +1,5 @@
 import React from 'react';
-//import useCustomHook from './useCustomForm';
+
 
 const CreatePlant = (props) => {
 console.log(props, 'props in createPlant')
