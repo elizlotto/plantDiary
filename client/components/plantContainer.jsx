@@ -34,22 +34,17 @@ const PlantContainer = () => {
 
   }, []);
   let plants = allPlants.map(plant => {
-    <PlantCard id={plant._id} name={plant.name} />
+    return (<PlantCard key={plant._id} id={plant._id} name={plant.name} />)
+   
   });
-
-  console.log(allPlants, 'all line 3');
-  
 
   return (
     <div className="PlantContainer">
-      <ul>
-        {/* {allPlants.map(plant => {
-          <PlantCard id={plant._id} name={plant.name} />
-        })} */} 
-        {/* {plants} */}
-        <PlantCard />
-       </ul>
-      <div>Welcome {user.name}!</div>
+    <div>Welcome {user.name}!</div>
+     <div className="PlantCard">
+        {plants}
+     </div>
+      
       <p>Plants coming soon!</p>
     </div>
   );
