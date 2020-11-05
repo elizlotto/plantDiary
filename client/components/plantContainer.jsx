@@ -38,7 +38,7 @@ const PlantContainer = () => {
     //note: must include delete button in this loop & an edit toggle
     return (<PlantCard key={plant._id} id={plant._id} name={plant.name} />)
   });
-
+//note: sum up all of the prices and have a toggle for viewing the cost of your plants
   return (
     <div className="PlantContainer">
     <div>Welcome {user.name}!</div>
