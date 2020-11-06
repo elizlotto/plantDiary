@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 module.exports = {
   createPlant(req, res, next) {
     console.log(req.body, 'req')
+    console.log('in createplant')
     const { email, plant, acquired, status, price } = req.body;
 
-    if (!name) return res.status(400).json("Missing plant name!");
     Plant.create(
       { email, plant, acquired, status, price },
       (err, newPlant) => {
@@ -26,6 +26,7 @@ module.exports = {
   },
 
   editPlant(req, res, next) {
+    console.log(req.body, "req in edit")
     const { _id } = req.params;
     const { status } = req.body;
     if (!status) return res.status(400).json("Missing a status!");

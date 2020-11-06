@@ -60,10 +60,10 @@ const CreatePlant = (props) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(input)
-      })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(error))
+    })
+      .then(res => res.json())
+      .catch(err => console.log(error));
+    //reset the state to clear the fields & refetch the data from db
 }
   return (
     <form className="Create-Plant" onSubmit={handleSubmit}>
