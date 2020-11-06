@@ -4,20 +4,13 @@ import React, {useState, useEffect} from 'react';
 const CreatePlant = (props) => {
   //console.log(props.email, 'props in createPlant')
   const [input, setInput] = useState({
-    email : '',
-    plant : '',
-    acquired : '',
-    status : '',
-    price : '',
-  })
-  console.log(input, 'input')
-  //const { inputs, handleInputChange, handleSubmit } = usePlantForm();
-  // const handleSubmit = (event) => {
-  //   if (event) {
-  //     event.preventDefault();
-  //   }
-  // };
-
+    email: '',
+    plant: '',
+    acquired: '',
+    status: '',
+    price: '',
+  });
+ //func for plant name
   const handlePlantChange = (event) => {
     event.persist();
     setInput((input) => ({
@@ -25,7 +18,7 @@ const CreatePlant = (props) => {
       plant: event.target.value
     }))
   }
-
+//func for acquired
   const handleAcquiredChange = (event) => {
     event.persist();
     setInput((input) => ({
@@ -33,7 +26,7 @@ const CreatePlant = (props) => {
       acquired: event.target.value
     }))
   }
-
+//func for status of plant
   const handleStatusChange = (event) => {
     event.persist();
     setInput((input) => ({
@@ -41,7 +34,7 @@ const CreatePlant = (props) => {
       status: event.target.value
     }))
   }
-
+//func for price of plant
   const handlePriceChange = (event) => {
     event.persist();
     setInput((input) => ({
@@ -49,6 +42,7 @@ const CreatePlant = (props) => {
       price: event.target.value
     }))
   }
+  //func for email of user into state
   const handleEmailChange = (event) => {
     event.persist();
     setInput((input) => ({
@@ -56,13 +50,20 @@ const CreatePlant = (props) => {
       email: event.target.value
     }))
   }
-  //handle Submit func
-
-  
+  //handle Submit func to send data to db
   const handleSubmit = (event) => {
      event.preventDefault()
     console.log(input, 'input state in submitPlant');
-    
+    fetch('/plant', {
+      method: POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(input)
+      })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(error))
 }
   return (
     <form className="Create-Plant" onSubmit={handleSubmit}>
