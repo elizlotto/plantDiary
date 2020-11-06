@@ -55,7 +55,7 @@ const CreatePlant = (props) => {
      event.preventDefault()
     console.log(input, 'input state in submitPlant');
     fetch('/plant', {
-      method: POST,
+      method: "POST",
       headers: {
         'Content-Type': 'application/json',
       },
