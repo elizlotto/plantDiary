@@ -30,7 +30,7 @@ const PlantContainer = () => {
   }, []);
   let plants = allPlants.map((plant) => {
     //note: must include delete button in this loop & an edit toggle
-    return <PlantCard key={plant._id} id={plant._id} name={plant.name} />;
+    return <PlantCard key={plant._id} id={plant._id} name={plant.plant} price={plant.price} status={plant.status} acquired={plant.acquired} />;
   });
   //note: sum up all of the prices and have a toggle for viewing the cost of your plants
   return (

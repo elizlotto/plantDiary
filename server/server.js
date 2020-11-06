@@ -11,6 +11,7 @@ const jwtDecode = require("jwt-decode");
 
 require("dotenv").config();
 // app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -26,7 +27,6 @@ app.get('/', (req, res) => {
 app.get("/login", authController.oAuth, (req, res) => {
 return res.redirect(res.locals.url);
 });
-
 //Oauth logic after success
 app.get(
 "/success",
@@ -77,7 +77,7 @@ res.json(res.locals.plant);
 // global error handler
 app.use((err, req, res, next) => {
 const defaultErr = {
-log: "Express error handler caught unkown middleware error!",
+log: "Express error handler caught unknown middleware error!",
 status: 500,
 message: { err: "An error occurred!" },
 };
