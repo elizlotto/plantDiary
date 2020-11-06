@@ -52,8 +52,7 @@ const CreatePlant = (props) => {
   }
   //handle Submit func to send data to db
   const handleSubmit = (event) => {
-     event.preventDefault()
-    console.log(input, 'input state in submitPlant');
+    event.preventDefault()
     fetch('/plant', {
       method: "POST",
       headers: {

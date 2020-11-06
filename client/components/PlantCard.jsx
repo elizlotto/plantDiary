@@ -4,6 +4,8 @@ import './PlantCard.css';
 const PlantCard = (props) => {
    const { id, name, status, acquired, price } = props;
   //console.log(props, 'props')
+  //add a delete and edit button for each of these. 
+  //we will need a state to toggle a view for edit
   return (
     <div className="Plant-card">
       <ul>Plant: {name}</ul>
