@@ -59,11 +59,13 @@ const CreatePlant = (props) => {
   //handle Submit func
 
   
-   const submitPlant = () => {
-  console.log(input, 'input state in submitPlant')
+  const handleSubmit = (event) => {
+     event.preventDefault()
+    console.log(input, 'input state in submitPlant');
+    
 }
   return (
-    <form className="Create-Plant" onSubmit={submitPlant}>
+    <form className="Create-Plant" onSubmit={handleSubmit}>
       <h1>Plant form</h1>
       <input type="hidden" name="email" onChange={handleEmailChange} value={input.email = props.email} required />
       <label>Name:</label>
