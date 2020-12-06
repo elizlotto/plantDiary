@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 const CreatePlant = (props) => {
   //console.log(props.email, 'props in createPlant')
   const [input, setInput] = useState({
+    user: '',
     email: '',
     plant: '',
     acquired: '',
@@ -50,6 +51,13 @@ const CreatePlant = (props) => {
       email: event.target.value
     }))
   }
+  const handleUserChange = (event) => {
+    event.persist();
+    setInput((input) => ({
+      ...input,
+     user: event.target.value
+    }))
+  }
   //handle Submit func to send data to db
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -68,6 +76,7 @@ const CreatePlant = (props) => {
     <form className="Create-Plant" onSubmit={handleSubmit}>
       <h1>Plant form</h1>
       <input type="hidden" name="email" onChange={handleEmailChange} value={input.email = props.email} required />
+      <input type="hidden" name="user" onChange={handleUserChange} value={input.user = props.user} required />  
       <label>Name:</label>
       <input type="text" name="plant" onChange={handlePlantChange} value={input.plant} required/>
       <label>Date Acquired/Purchased:</label>
