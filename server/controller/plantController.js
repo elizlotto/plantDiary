@@ -3,12 +3,10 @@ const mongoose = require('mongoose');
 
 module.exports = {
   createPlant(req, res, next) {
-    console.log(req.body, 'req')
-    console.log('in createplant')
-    const { email, plant, acquired, status, price } = req.body;
+    const { user, email, plant, acquired, status, price } = req.body;
 
     Plant.create(
-      { email, plant, acquired, status, price },
+      { user, email, plant, acquired, status, price },
       (err, newPlant) => {
         if (err) return next(err);
         res.locals.plant = newPlant;
@@ -18,7 +16,7 @@ module.exports = {
   },
 
   getPlants(req, res, next) {
-    Plant.find({}, (err, allPlants) => {
+    Plant.find({ user: req.cookies.name }, (err, allPlants) => {
       if (err) return next(err);
       res.locals.plant = allPlants;
       return next();
