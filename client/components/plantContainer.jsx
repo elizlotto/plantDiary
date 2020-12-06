@@ -16,11 +16,9 @@ const PlantContainer = () => {
 
   //useEffect for fetching plant data
   const [allPlants, setAllPlants] = useState([]);
-console.log(user, 'user ln 19')
+
   useEffect(() => {
-    fetch('/plant', {
-    }
-      )
+    fetch('/plant', {})
       .then((res) => {
         if (res.status >= 400) throw new Error('Server error!');
         return res.json();
@@ -33,17 +31,16 @@ console.log(user, 'user ln 19')
     //note: must include delete button in this loop & an edit toggle
     return <PlantCard key={plant._id} user={plant.user} id={plant._id} name={plant.plant} price={plant.price} status={plant.status} acquired={plant.acquired} />;
   });
-  console.log(allPlants, 'all plants')
   //note: sum up all of the prices and have a toggle for viewing the cost of your plants
   return (
     <div className="PlantContainer">
       <div>Welcome {user.name} <img src={user.picture}></img>!</div>
       <div className="PlantCard">{plants}</div>
+      {!allPlants.length && <h2 style={{ color: 'green' }}>Bummer, you don't have any plants yet! Add a plant to get started! </h2>}
       <div>
         <CreatePlant user={user.name} email={user.email} />
       </div>
-      {!allPlants.length && <h2 style={{ color: 'green' }}>Bummer, you don't have any plants yet! Add a plant to get started! </h2>}
-    </div>
+     </div>
   );
 };
 

@@ -16,7 +16,7 @@ module.exports = {
   },
 
   getPlants(req, res, next) {
-    Plant.find({user: req.cookies.name}, (err, allPlants) => {
+    Plant.find({ user: req.cookies.name }, (err, allPlants) => {
       if (err) return next(err);
       res.locals.plant = allPlants;
       return next();
