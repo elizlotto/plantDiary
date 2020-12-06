@@ -60,7 +60,7 @@ const CreatePlant = (props) => {
   }
   //handle Submit func to send data to db
   const handleSubmit = (event) => {
-    event.preventDefault()
+    // event.preventDefault() <--this line stops the refresh 
     fetch('/plant', {
       method: "POST",
       headers: {
@@ -71,6 +71,7 @@ const CreatePlant = (props) => {
       .then(res => res.json())
       .catch(err => console.log(error));
     //reset the state to clear the fields & refetch the data from db
+
 }
   return (
     <form className="Create-Plant" onSubmit={handleSubmit}>

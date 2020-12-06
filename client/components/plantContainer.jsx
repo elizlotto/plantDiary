@@ -33,15 +33,16 @@ console.log(user, 'user ln 19')
     //note: must include delete button in this loop & an edit toggle
     return <PlantCard key={plant._id} user={plant.user} id={plant._id} name={plant.plant} price={plant.price} status={plant.status} acquired={plant.acquired} />;
   });
+  console.log(allPlants, 'all plants')
   //note: sum up all of the prices and have a toggle for viewing the cost of your plants
   return (
     <div className="PlantContainer">
-      <div>Welcome {user.name} {user.image}!</div>
+      <div>Welcome {user.name} <img src={user.picture}></img>!</div>
       <div className="PlantCard">{plants}</div>
       <div>
         <CreatePlant user={user.name} email={user.email} />
       </div>
-      <p>Plants coming soon! </p>
+      {!allPlants.length && <h2 style={{ color: 'green' }}>Bummer, you don't have any plants yet! Add a plant to get started! </h2>}
     </div>
   );
 };

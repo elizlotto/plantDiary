@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 
 module.exports = {
   createPlant(req, res, next) {
-    console.log(req.body, 'req')
-    console.log('in createplant')
     const { user, email, plant, acquired, status, price } = req.body;
 
     Plant.create(
