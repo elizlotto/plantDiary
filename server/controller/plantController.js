@@ -31,7 +31,7 @@ module.exports = {
     Plant.findOneAndUpdate(
       { _id },
       { status },
- { new: true },
+      { new: true },
       (err, editedPlant) => {
         if (err) return next(err);
         res.locals.plant = editedPlant;
