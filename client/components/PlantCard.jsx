@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PlantCard.css';
+import DeletePlant from './DeletePlant';
 
 const PlantCard = (props) => {
    const { id, name, status, acquired, price, user } = props;
@@ -14,6 +15,9 @@ const PlantCard = (props) => {
       <ul>Status: {status}</ul>
       <ul>Acquired: {acquired}</ul>
       <ul>Price: {price}</ul>
+      <ul>
+        <DeletePlant id={id}/>
+      </ul>
     </div>
   );
 }
