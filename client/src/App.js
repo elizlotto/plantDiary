@@ -7,7 +7,7 @@ import './assets/styles.scss';
 
 const App = () => {
   return (
-   
+   //create a component above PlantContainer that allows user to select between seeing the PlantContainer vs pot container
       <router>
          <main>
         <Switch>
